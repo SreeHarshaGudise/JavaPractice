@@ -1,0 +1,107 @@
+
+
+
+// query to customerdetails who are greater than 18 and having no phone number in records and whose 
+//area of interest is Reading
+
+
+import java.util.Scanner;
+public class Customerdetails {
+	public static void main(String []args)
+	{
+		Scanner s = new Scanner(System.in);
+		int size = s.nextInt();
+		String country[] = new String[size];
+		int age[] = new int[size];
+		String phno[] = new String[size];
+		String AOS[] = new String[size];
+		for(int i=0;i<size;i++)
+		{
+			country[i]=s.next();
+			age[i]=s.nextInt();
+			phno[i]=s.next();
+			AOS[i]=s.next();
+		}
+		int count=0,count1=0,count2=0,count3=0,count4=0;
+		for(int j=0;j<size;j++)
+		{
+			if(country[j].equals("india"))
+			{
+				count++;
+			}else if(country[j].equals("Australia"))
+			{
+				count1++;
+			}
+			if(age[j]>18)
+			{
+				count2++;
+			}
+			if(phno[j].equals(null))
+			{
+				count3++;
+			}
+			if(AOS[j].equals("Reading"))
+			{
+				count4++;
+			}
+		}
+		System.out.println("the coustomers in india are "+count+"and in australia "+count1);
+		System.out.println("customers whose age is greater than 18 "+count2);
+		System.out.println("customers who are having no phone number "+ count3);
+		System.out.println("customers whose area of interest "+count4);
+	}
+
+}
+
+
+
+
+
+
+//Query to movie deatails which released in 2016 and 2017  and total movies having duration of 3 hrs
+// and total number of movies list whose rating is between 4 and 5.
+
+
+
+
+
+
+import java.util.Scanner;
+public class MovieDet {
+	public static void main(String []args)
+	{
+		Scanner s = new Scanner(System.in);
+		int size = s.nextInt();
+		int []release = new int[size];
+		int []duration = new int[size];
+		double []rating = new double[size];
+		for(int i=0;i<size;i++)
+		{
+			release[i] = s.nextInt();
+			duration[i] = s.nextInt();
+			rating[i] = s.nextDouble();
+		}
+		int count=0,count1=0,count2=0;
+		for(int j=0;j<size;j++)
+		{
+			if(release[j]>=2016 && release[j]<=2017)
+			{
+				count++;
+			}
+			if(duration[j]==3)
+			{
+				count1++;
+				
+			}
+			if(rating[j]>4&&rating[j]<5)
+			{
+				count2++;
+			}
+		}
+		System.out.println("the movies which realeased in the year of 2016 and 2017 are "+ count);
+		System.out.println("the movies whose duration is of 3 hrs "+ count1);
+		System.out.println("the movies whose rating are between 4 and 5 "+ count2);
+	}
+
+}
+
