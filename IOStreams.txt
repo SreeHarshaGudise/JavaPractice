@@ -24,7 +24,7 @@ public class FilePathh {
 
 output:
 	File exists.
-
+-----------------------------------------------------------------------------------
 
 //Create a a new Directory
 
@@ -49,7 +49,7 @@ output:
 
 	Directory Exists.
 
-
+---------------------------------------------------------------------------------------
 //Enter data in file using FileWriter class
 
 
@@ -72,7 +72,7 @@ public class WritingUseFileWrtr {
 
 output:
 	harsha12345
-
+------------------------------------------------------------------------------------------------
 
 // Enter the data using BufferedWriter
 
@@ -98,7 +98,7 @@ ouput:
 
 	harsha
 	h
-
+------------------------------------------------------------------------------------------------
 // Read the data using FileReader
 
 
@@ -134,7 +134,7 @@ public static void main(String []args) throws IOException
 output:
 	Harsha
 	cf
-
+-----------------------------------------------------------------------------------------------------------
 // read data using BufferedReader
 
 import java.io.File;
@@ -158,7 +158,7 @@ public static void main(String []args) throws IOException
 output:
 
 	Harsha hai this is niit
-
+---------------------------------------------------------------------------------------------------
 //Difference between file writer and bufferedWriter
 
 
@@ -182,7 +182,7 @@ public static void main(String []args) throws IOException
 }
 }
 
-
+--------------------------------------------------------------------------------------------------
 //Write data using printWriter class
 
 
@@ -210,7 +210,7 @@ public static void main(String []args) throws IOException
 
 output:
 	Hai this is NIIT
-
+---------------------------------------------------------------------------------------------------
 //data into file using FileOutputStream
 
 import java.io.File;
@@ -245,7 +245,7 @@ public class FileOtptStrmUseFile {
 
 output:
 	^-|^-|97
-
+---------------------------------------------------------------------------------------------------------------------------
 // data reading using FileINputStream
 
 
@@ -271,7 +271,7 @@ public class FileInptStrmUseFile {
 
 
 
-
+----------------------------------------------------------------------------------------------------------------------
 // read data from file and write into another using filereader and filewriter and bufferedReader and bufferedWriter
 
 
@@ -306,7 +306,7 @@ public class FlRdrFlWrtBufRdrBufWrt {
 
 output:
 	Used all writers and readers
-
+--------------------------------------------------------------------------------------------------------------
 
 //copy data from single file to single file using byte streams
 
@@ -335,7 +335,7 @@ public class Single2Single {
 
 output:
 	Hai this is NIIT
-
+---------------------------------------------------------------------------------------------------------------------
 //
 copy data from one file to multiple files
 
@@ -372,7 +372,7 @@ output:
 	Hai this is NIIT
 	file 2:
 	Hai this is NIIT
-
+-------------------------------------------------------------------------------------------------------------
 //copy data from 2 files to one file
 
 
@@ -406,7 +406,7 @@ output:
 
          file1 :
           hai this is niit hai this is niit
-
+---------------------------------------------------------------------------------------
 //Read Image from specific path to specific path
 
 	import java.io.BufferedInputStream;
@@ -438,7 +438,7 @@ public class Img {
 output:
 	A copy of an image is forwarded to another directory
 
-
+------------------------------------------------------------------------------------------------------------------------
 //Copy image to text file
 
 
@@ -470,7 +470,7 @@ public class Img2txt {
 output:
 
 	image has been processed to text file
-
+-------------------------------------------------------------------------------------------------------------------------------
 //read image from specific path to document
 
 
@@ -504,7 +504,7 @@ output:
 
 	image has been processed to document file
 
-
+------------------------------------------------------------------------------------------------
 // read audio file from specific path to specific path
 
 
@@ -538,7 +538,7 @@ output:
 
 	audio  has been processed to audio file in specific path
 
-
+---------------------------------------------------------------------------------------------
 // read video file to specific path
 
 
@@ -576,7 +576,7 @@ output:
 video  has been processed to video file in specific path
 
 
-
+--------------------------------------------------------------------------------------------------------
 // Video file to text format
 
 
