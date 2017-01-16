@@ -1,0 +1,265 @@
+// Write a java program to accept customer name ,price of the product,quantity of product.if the salary of the customer is 10,000per month then what % of 
+salary customer spent on purchase?
+
+
+import java.util.Scanner;
+public class CustID {
+	static double result;
+	public double result( double[] amount)
+	{
+		double sum = 0;
+		for(int k=0;k<=2;k++)
+		{
+			sum = sum+amount[k];
+		}
+		result = (sum/10000)*100;
+		//result = result*100;
+		return result;
+	}
+	public static void main(String []args)
+	{
+		Scanner s = new Scanner(System.in);
+		String name = s.nextLine();
+		System.out.println("The name of customer "+name);
+		String []pro = new String[3];
+		int []quan = new int[3];
+		double []amount = new double[3];
+		for(int i=0;i<=2;i++)
+		{
+			pro[i] = s.next();
+			quan[i] = s.nextInt();
+			amount[i] = s.nextDouble();
+		}
+		for(int j=0;j<=2;j++)
+		{
+			System.out.println("product name "+pro[j]+" Quantity of product is "+quan[j]);
+		}
+		CustID obj = new CustID();
+		obj.result(amount);
+		System.out.println("the percentage of expenditure over salary of customer is " + result);
+		
+	}
+}
+
+output:
+	the percentage of expenditure over slary of customer is  75.0
+
+
+// wite a java program to accept customer name and rating for android one mobile phone .Display the average rating for the product?
+
+
+package queryprograms;
+
+import java.util.Scanner;
+
+public class Rating 
+{
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	String []name = new String[4];
+	Double []rating = new Double[4];
+	for(int i=0;i<4;i++)
+	{
+		System.out.println("enter the name :");
+		name[i] = s.next();
+		System.out.println("Enter the rating: ");
+		rating[i] = s.nextDouble();
+	}
+	double sum =0;int i=0;
+	for(int j=0;j<4;j++)
+	{
+		sum = sum+rating[j];
+		i++;
+	}
+	sum = sum/i;
+	System.out.println("the overall average rating is :"+ sum);
+}
+}
+
+output:
+
+	the overall average rating is 4.8
+
+// 3.write a java program to accept student marks of 5 subjcts student name.calculate the 
+percentage and dislay grade for the student?
+
+1.between 85 to 100% grade = A++
+2.Between 75 to 84% grade = A
+3.between 64 to 75% grade = B
+4.between  50 to 65% grade = C
+5.below 50% grade = FAIL
+
+
+package queryprograms;
+import java.util.Scanner;
+public class Grades {
+	 static double sum =0;
+	public double perc(int []marks)
+	{
+		
+		int count=0;
+		for(int i=0;i<marks.length;i++)
+		{
+			sum = sum+marks[i];
+			count++;
+		}
+		sum = sum/(count*100);
+		sum = sum*100;
+		return sum;
+	}
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int size = s.nextInt();
+	System.out.println("Enter the name of Student");
+	String name = s.next();
+	int marks[] = new int[size];
+	System.out.println("Enter the marks of subjects ");
+	for(int j=0;j<size;j++)
+	{
+		marks[j] = s.nextInt();
+	}
+	Grades d = new Grades();
+	d.perc(marks);
+	System.out.println("the name of student is "+name);
+	if(sum>85.0 && sum<100.0)
+	{
+		System.out.println("the grade is A++");
+	}
+	else if( sum>75.0 && sum<84.0)
+	{
+		System.out.println("the grade is A");
+	}
+	else if(sum>64 && sum <75)
+	{
+		System.out.println("the grade is B");
+	}
+	else if(sum>50 && sum<65)
+	{
+		System.out.println("the grade is C");
+	}
+	else
+	{
+		System.out.println("the grade is FAIL");
+	}
+}
+}
+ output:
+
+
+
+	the name of student is  harsha
+	teh grade is B
+// 4.write a java program for addition of two matrices
+
+
+package queryprograms;
+import java.util.Scanner;
+
+public class Matricesss {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int size = s.nextInt();
+	int size2 = s.nextInt();
+	int a[][] = new int[size][size2];
+	int b[][] = new int[size][size2];
+	int sum[][] = new int[size][size2];
+	int c=0,d=0;
+	System.out.println("the values of first matrix ");
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			a[c][d] = s.nextInt();
+		}
+	}
+	System.out.println("the values of second matrix ");
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			b[c][d] = s.nextInt();
+		}
+	}
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			sum[c][d] = a[c][d] + b[c][d];
+		}
+	}
+	
+	System.out.println("the values of summation matrix ");
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			System.out.print(sum[c][d]+" ");
+		}
+		System.out.println();
+	}
+	
+}
+}
+
+output:
+	
+	values of first matrix
+	1  2
+	3  4
+	values of second matrix
+	3  5
+	2  6
+	Summation of matrix
+	4  7
+	5  10
+
+// write a java program to print matrix Transpose
+
+package queryprograms;
+import java.util.Scanner;
+public class Transpose {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int size = s.nextInt();
+	int size2 = s.nextInt();
+	int a[][] = new int[size][size2];
+	int b[][] = new int[size2][size];
+	int c=0,d=0;
+	System.out.println("the values of first matrix ");
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			a[c][d] = s.nextInt();
+		}
+	}
+	System.out.println("the values of transpose matrix ");
+	for(c=0;c<size;c++)
+	{
+		for(d=0;d<size2;d++)
+		{
+			b[d][c] = a[c][d];
+		}
+	}
+	for(c=0;c<size2;c++)
+	{
+		for(d=0;d<size;d++)
+		{
+			System.out.print(b[c][d]+" ");
+		}
+		System.out.println();
+	}
+}
+}
+
+output:
+	values of first matrix
+	2 3
+	4 5
+        traspose of matrix
+	2 4
+	3 5
