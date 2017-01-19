@@ -1,0 +1,350 @@
+// factorial number without recursion
+
+package logics;
+import java.util.Scanner;
+public class Factorial {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int num = s.nextInt();
+	int pro =1;
+	for(int i=1;i<=num;i++)
+	{
+		pro = pro*i;
+	}
+	System.out.println(pro);
+}
+}
+output:
+
+	5
+	120
+
+//factorial using recursion
+
+package logics;
+import java.util.Scanner;
+public class FactRec {
+	static int pro;
+	public int fact(int num)
+	{
+		 if(num==1)
+		 {
+			 return 1;
+		 }
+		 else
+		 {
+		 pro = num*fact(num-1);
+		return ( pro);
+		 }
+	}
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int num = s.nextInt();
+	FactRec fr = new FactRec();
+	fr.fact(num);
+	System.out.println(pro);
+}
+}
+
+
+o/p:
+
+	5
+	120
+
+//fibonacci series
+
+
+package logics;
+import java.util.Scanner;
+public class Fibonacci {
+	public static void main(String []args)
+	{
+	Scanner s = new Scanner(System.in);
+	int num = s.nextInt();
+	int n1=0,n2=1,n3;
+	System.out.println(n1);
+	System.out.println(n2);
+			for(int i=2;i<=num;i++)
+			{
+			n3= n1+n2;
+			System.out.println(" "+n3);
+			n1 = n2;
+			n2 = n3;
+
+			}
+	}
+
+}
+
+
+o/p:	5
+
+
+	0
+	1
+	1
+	2
+	3
+	5
+	7
+	13
+
+
+//floyld Traingle pattern
+
+package logics;
+import java.util.Scanner;
+public class FloydTrain {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int rowssize = s.nextInt();
+	int num =1;
+	for(int i=1;i<=rowssize;i++)
+	{
+		for(int j=1;j<=i;j++)
+		{
+			System.out.print(" "+num);
+			num++;
+		}
+		System.out.println();
+	}
+}
+}
+
+
+o/p:
+	1
+	2 3
+	4 5 6
+	7 8 9 10
+	11 12 13 14 15
+
+//magic number wap
+
+
+package logics;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+public class MagicNUm {
+	static int sum ;
+	public int magic(int num)
+	{
+		while(num>9)
+		{
+			sum =0;
+		while(num>0)
+		{
+			sum = sum+num%10;
+			num = num/10;
+		}
+		num=sum;
+		}
+		return (sum);
+	}
+public static void main(String []args) throws IOException
+{
+	BufferedInputStream bis = new BufferedInputStream(System.in);
+	int num = bis.read();
+	MagicNUm mn = new MagicNUm();
+	mn.magic(num);
+	if(sum == 1)
+	{
+		System.out.println(num+" magic number");
+	}
+	else
+	{
+		System.out.println(num+" not a magic number");
+	}
+}
+}
+
+
+o/P:   19 magic number
+
+
+//second largest element in array without sorting
+
+
+package logics;
+
+import java.util.Scanner;
+
+public class Maxtwoelement {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int size = s.nextInt();
+	int a[] = new int[size];
+	for(int i=0;i<size;i++)
+	{
+		a[i] = s.nextInt();
+	}
+	int maxone = 0;
+	int maxtwo = 0;
+	for(int d:a)
+	{
+		if(maxone<d)
+		{
+			maxtwo = maxone;
+			maxone = d;
+		}
+		else if(maxtwo<d)
+		{
+			maxtwo = d;
+		}
+	}
+	System.out.println("the max values of array "+ maxtwo);
+}
+}
+
+
+o/P::   [23,54.12.32.67.89.]
+	67
+
+
+//pattern 
+
+
+
+*
+* * *
+* * * * *
+* * * * * * *
+* * * * * * * * * 
+
+
+
+package logics;
+
+import java.util.Scanner;
+
+public class Pattern {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int size = s.nextInt();
+	for(int i=1;i<=size;i++)
+	{
+		for(int j=1;j<=2*i-1;j++)
+		{
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+}
+}
+
+
+o/p:
+
+*
+* * *
+* * * * *
+* * * * * * *
+* * * * * * * * * 
+
+
+//perfect number wap
+
+
+package logics;
+import java.util.Scanner;
+public class Perfect {
+	public static void main(String []args)
+	{
+	Scanner s = new Scanner(System.in);
+	int num = s.nextInt();
+	int sum = 0;
+	for(int i=1;i<=num;i++)
+	{
+		if(num%i==0)
+		{
+			sum = sum+ i;
+		}
+	}
+	if(sum/2 == num)
+	{
+		System.out.println("the number is perfect number ");
+	}
+	else
+	{
+		System.out.println("the number is not perfect");
+	}
+	}
+}
+
+o/P:
+
+
+6
+it is a perfect number
+
+
+
+//reverse of a number
+
+
+package logics;
+
+import java.util.Scanner;
+public class ReverseofNum {
+public static void main(String []args)
+{
+	Scanner s = new Scanner(System.in);
+	int num = s.nextInt();
+	int rem,sum=0;
+	while(num>0)
+	{
+		rem = num%10;
+		sum = sum*10+rem;
+		num = num/10;
+	}
+	System.out.println("the reverse of given number is "+sum);
+}
+}
+
+
+o/p:
+	123
+	321
+
+//constructors order
+
+package logics;
+
+ class A
+{
+ private int a;
+ int b,c;
+	
+	 A()
+	{
+		System.out.println("Am constructor of class A");
+	}
+}
+  public class Tasks extends A{
+	private int a,b;
+	Tasks()
+	{
+		System.out.println("Am constructor of class B");
+	}
+   public static void main(String []args)
+ {
+	Tasks ts = new Tasks();
+	
+ }
+}
+
+o/P:
+
+
+Am constructor of class A
+
+Am constructor of class B
+
+
+
