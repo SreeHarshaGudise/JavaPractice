@@ -1,0 +1,94 @@
+// Product Details and Customer Details
+
+schema in DB
+1.customer ID
+2.ProductID
+3.ProductPrice
+4.Quantity
+5.TotalPrice
+6.DateOfPurchase
+7.ProductType
+8.DiscountPercentage
+
+
+
+
+Queries:
+1.Total purchase made by single customer (Static way)
+2.purchase made by all the customers between 1-jan tio 31-jan?
+3.Display the list of all products where discount is >25%?
+4.Proiduct Category wise total sales?
+
+
+
+=======================================================
+
+ import java.sql.DriverManager;
+ import javax.servlet.*;
+ import javax.servlet.http.*;
+ import java.sql.*;
+ import java.io.*;
+ import java.util.*;
+ public class ProductDetails extends HttpServlet
+ {
+     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
+     {
+         try{
+             Class.forName("com.mysql.jdbc.Driver");
+             Connection con = DriverManager.getConnection("jdbc:mysql:localhost/harsha","root","root");
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery("select * from Employee");
+             ArrayList al = new ArrayList();
+             while(rs.next())
+             {
+                 String CusID = rs.getString("ID");
+                 String ProID = rs.getString("PID");
+                 String proprice = rs.getString("price");
+                 String quantity = rs.getString("quantity");
+                 String Totprice = rs.getString("Price");
+                 String DOP = rs.getString("date");
+                 String type = rs.getString("protype");
+                 int dis = rs.getInt("Disper");
+                 // discount greater than 25%
+                 if(dis>25)
+                 {
+                     al.add("type");
+                 }
+             }
+             // total price by wanted customer
+             ResultSet rs3 = st.executeQuery("select * from Employee where customerid = id");
+             float price = 0.0f;
+             while(rs3.next())
+             {
+                 price = price+rs3.getFloat("3");
+             }
+             float purchase = 0.0f;
+             
+             
+             
+             
+             // total purchase done by customers whose date of purchase between jan 1 to jan 31
+             ResultSet rs2 = st.executeQuery("select * from Employee where date between date='jan 1' and date='jan 31'");
+             while(rs2.next())
+             {
+                 purchase = purchase+rs2.getFloat(("productPrice"));
+             }
+             // total sales of producttype
+             ResultSet rs4 = st.executeQuery("select * from Employee where product ='producttype'");
+             int sales = 0;
+             while(rs4.next())
+             {
+                 sales = sales+rs4.getInt("4");
+             }
+             PrintWriter pw = res.getWriter();
+             pw.println("total purchase of date from jan 1 to jan 31");
+             pw.println("list of porducts whose discount is greater than 25 percentage"+al);
+             pw.println("total price by individual customer"+ price);
+             pw.println("total sales of individual product "+ sales);
+         }
+         catch(Exception e)
+         {
+             System.out.println(e);
+         }
+     }
+ }

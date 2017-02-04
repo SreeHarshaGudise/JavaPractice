@@ -1,0 +1,117 @@
+// employee details in database
+
+Query:
+1.count total no fo employees
+2. count total employees of department wise
+3.total employee city wise
+4.Average salary of total employees
+5.average salary of department wise
+6.list of files whose status is single?
+7.List of files who will retire after 2 years (60 yrs retirement date)
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author MRuser
+ */
+import java.sql.DriverManager;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
+import java.io.*;
+public class EmployeeDet extends HttpServlet
+{
+ public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
+ {
+     try{
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con = DriverManager.getConnection("jdbc:mysql:localhost/harsha","root","root");
+         Statement st = con.createStatement();
+         ResultSet rs = st.executeQuery("select * from Employee");
+         int count =0;
+         int D1Count =0;
+         int D2Count =0;
+         int City1 =0;
+         int City2 =0;
+        
+         double sal = 0.0d;
+         double D1sal = 0.0d;
+         double D2sal = 0.0d;
+         int single=0;
+         int retire = 0;
+          while(rs.next())
+                 {
+         String EmployeeID = rs.getString("EmployeID");
+         String Empname = rs.getString("Name");
+         int age = rs.getInt("Age");
+         double Salary = rs.getDouble("Salary");
+         String city = rs.getString("City");
+         String Department = rs.getString("Dept");
+         String JOD = rs.getString("JOD");
+         String DOB = rs.getString("dob");
+         String Status = rs.getString("Status");
+         count++;
+         //=======Dept count and dept salary=====//
+         if(Department.equals("Finance"))
+         {
+             D1Count++;
+             D1sal = D1sal+Salary;
+           
+         }else if(Department.equals("Testing"))
+         {
+             D2Count++;
+             D2sal = D2sal+Salary;
+         }
+         //====city count=====//
+         if(city.equals("Mumbai"))
+         {
+             City1++;
+         }else if(city.equals("Delhi"))
+         {
+             City1++;
+         }
+         //======= salary total=======//
+         
+         
+         sal = sal+Salary;
+         
+         
+         //status single//
+         if(Status.equals("single"))
+         {
+             single++;
+                 }
+         //======== Retirement Date======//
+
+         if(age>=58&&age<60)
+         {
+             retire++;
+         }   
+    }
+          double avgsal =(sal/count); 
+          double avgsalD1 = (D1sal/D1Count);
+          double avgsalD2 = (D2sal/D2Count);
+        PrintWriter pw = res.getWriter();
+        pw.println("the count of employees are "+count);
+        pw.println("the count of employee in department Finance"+ D1Count);
+        pw.println("the count of employee in department Testing"+ D2Count);
+        pw.println("the count of employee in city Delhi"+ City1);
+        pw.println("the count of employee in city Mumbai"+ City2);
+        pw.println("the average sal of total employees"+ avgsal);
+        pw.println("the department finance average salary "+ avgsalD1);
+        pw.println("the department testing average salary "+ avgsalD2);
+        pw.println("the employee count whiose status is single "+ single);
+        pw.println("the employees whoaare goin to retire after 2 years "+retire);
+     }catch(Exception e)
+     {
+         System.out.println(e);
+     }
+ }
+}
+===========================================
